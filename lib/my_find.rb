@@ -1,5 +1,22 @@
-require 'pry'
+require pry
+
 
 def my_find(collection)
+  i = 0
+  while i < collection.length
+  if yield(collection[i]) == true
+    return collection[i]
+  end
+    i = i + 1
+  end
+end
 
+collection = (1..100).to_a
+
+my_find(collection) do |i|
+i % 3 == 0 and i % 5 == 0
+end
+
+my_find(collection) do |i|
+i % 200 = 0
 end
